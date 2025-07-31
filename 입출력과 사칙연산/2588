@@ -1,0 +1,24 @@
+import java.util.Scanner;
+
+public class Main {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner sc = new Scanner(System.in);
+		
+		String a = sc.nextLine();
+		
+		String b = sc.nextLine();
+       /* System.out.println(Integer.parseInt(a) * Integer.parseInt(b.substring(2)));   // 472 * 5
+        System.out.println(Integer.parseInt(a) * Integer.parseInt(b.substring(1)));   // 472 * 85
+        System.out.println(Integer.parseInt(a) * Integer.parseInt(b.substring(0)));   // 472 * 385 */
+       
+        
+        System.out.println(Integer.parseInt(a) * Integer.parseInt(b.substring(2, 3))); // 5
+        System.out.println(Integer.parseInt(a) * Integer.parseInt(b.substring(1, 2))); // 8
+        System.out.println(Integer.parseInt(a) * Integer.parseInt(b.substring(0, 1))); // 3
+        
+        System.out.println(Integer.parseInt(a) * Integer.parseInt(b.substring(0)));
+	}
+
+}
