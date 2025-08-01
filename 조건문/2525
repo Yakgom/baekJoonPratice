@@ -1,0 +1,39 @@
+import java.util.Scanner;
+
+public class Main {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner sc = new Scanner(System.in);
+		
+		int h  = sc.nextInt();
+		
+		int m = sc.nextInt();
+		
+		int time = sc.nextInt();
+		
+		
+		
+		if( (m+time) >= 60 ) {
+			
+			int a = (m+time)/60;
+			h += a;
+			a = (m+time);
+			m = a %= 60;
+			
+			
+			if(h>23) {
+				h %=24;
+			}
+			
+			System.out.println( h + " " + m );
+			
+		}
+		
+		else {
+			System.out.println( h + " " + (m+time) );
+		}
+		
+		
+	}
+}
