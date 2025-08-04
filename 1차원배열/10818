@@ -1,0 +1,73 @@
+import java.io.IOException;
+import java.util.Scanner;
+
+
+public class Main {
+
+	public static void main(String[] args) throws IOException  {
+		// TODO Auto-generated method stub
+	
+		
+		Scanner sc = new Scanner(System.in);
+		
+		
+		int[] array = new int[sc.nextInt()]; 
+		
+		
+		
+		for(int i=0; i<array.length; i++) {
+			
+			array[i] = sc.nextInt();
+			
+		}
+		
+		int max = array[0];
+		int min = array[0];
+		
+		for(int i=0; i<array.length; i++) {
+			
+			if(array[i]>max) {
+				max=array[i];
+			}
+		}
+		
+		for(int y=0; y<array.length; y++) {
+			
+			if(array[y]<min) { // 20 10 35 30 7
+				min=array[y];
+			}
+		}
+		System.out.println(min + " " +max);
+		
+
+    /*
+    
+    BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        
+        // 첫 번째 줄: 정수 N
+        int N = Integer.parseInt(br.readLine());
+
+        // 두 번째 줄: N개의 정수
+        StringTokenizer st = new StringTokenizer(br.readLine());
+
+        int min, max;
+        int num = Integer.parseInt(st.nextToken());
+        min = max = num;
+
+        for (int i = 1; i < N; i++) {
+            num = Integer.parseInt(st.nextToken());
+            
+            if (num > max) max = num;
+            if (num < min) min = num;
+        }
+
+        System.out.println(min + " " + max);
+    
+    
+    */
+
+
+
+		}
+		
+	}
