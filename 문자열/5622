@@ -1,0 +1,64 @@
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Scanner;
+import java.util.StringTokenizer;
+
+public class Main {
+
+	public static void main(String[] args) throws IOException {
+		// TODO Auto-generated method stub
+
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
+		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+
+		StringTokenizer st;
+
+		// st = new StringTokenizer(br.readLine());
+
+		 StringBuilder sb = new StringBuilder();
+		 
+		 String dial = br.readLine();
+		 
+		
+		
+		 
+		 String[] str = new String[8];
+		 
+		 str[0] = "ABC";
+		 str[1] = "DEF";
+		 str[2] = "GHI";
+		 str[3] = "JKL";
+		 str[4] = "MNO";
+		 str[5] = "PQRS";
+		 str[6] = "TUV";
+		 str[7] = "WXYZ";
+		 int count = 0;
+	
+		 for(int i = 0; i<str.length; i++) { // 배열에다가 각 다이얼 문자 집어넣고 반복문으로 다이얼값과 같은지 찾음
+			 
+			 for(int k=0; k<dial.length(); k++) { // 다이얼 길이 만큼 돌림
+				
+				 for(int j =0; j<str[i].length(); j++) { // 다이얼 안에 값이랑 확인하기위해 반복문
+					 
+					     if(str[i].charAt(j) == dial.charAt(k)) { // 다이얼 문자열과 str 안에 값을 비교해서 맞다면 count를 올려서 값을 저장해주고 다이얼은 2부터 시작이라 +2를 해줌
+					    	 count += i+2;
+					     };
+					 
+				 }
+			 }
+			 
+		
+			 
+		 }
+			System.out.println(count+dial.length());
+
+
+		 }
+	
+	}
