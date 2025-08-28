@@ -1,0 +1,61 @@
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.util.StringTokenizer;
+
+public class Main {
+	
+	public static void main(String[] args) throws IOException {
+		// TODO Auto-generated method stub
+
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
+		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+
+		StringTokenizer st;
+
+
+		// st = new StringTokenizer(br.readLine());
+
+		StringBuilder sb = new StringBuilder();
+		
+		double Numerator = 0;
+		double Denominator =0;
+		for(int i=0; i<20; i++) {
+			String str = br.readLine();
+			
+			String[] strs = str.split(" ");
+
+			
+			String score = strs[1];
+			String grade = strs[2];
+			
+			String scoreAvg = "0";
+			
+		    
+			
+			switch(grade) {
+			case "F" : scoreAvg = "0"; break;
+			case "D0" : scoreAvg = "1.0";  break;
+			case "D+" : scoreAvg = "1.5";  break;
+			case "C0" : scoreAvg = "2.0";  break;
+			case "C+" : scoreAvg = "2.5";  break;
+			case "B0" : scoreAvg = "3.0";  break;
+			case "B+" : scoreAvg = "3.5";  break;
+			case "A0" : scoreAvg = "4.0";  break;
+			case "A+" : scoreAvg = "4.5";  break;
+			default :   continue;
+			}
+			if(!grade.equals("P")) {
+			Numerator += Double.parseDouble(score); // 내 학점의 총합 
+			Denominator += Double.parseDouble(score) * Double.parseDouble(scoreAvg); // 학점 X 과목평점 의 합 
+			}
+		}
+			
+		System.out.println(Denominator/Numerator);
+		
+	}
+		
+}
