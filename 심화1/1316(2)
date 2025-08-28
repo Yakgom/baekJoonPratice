@@ -1,0 +1,71 @@
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.util.StringTokenizer;
+
+public class Main {
+	
+	 	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+	public static void main(String[] args) throws IOException {
+		// TODO Auto-generated method stub
+
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
+		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+
+		StringTokenizer st;
+
+
+		// st = new StringTokenizer(br.readLine());
+
+		StringBuilder sb = new StringBuilder();
+		
+		int N = Integer.parseInt(br.readLine());
+		
+		int cnt =0; // 그룹 단어 체크
+		
+	 	
+		for(int i=0; i<N; i++) {
+			
+			if(check(br.readLine()) == true) { // 인자값으로 넘겨준게 true라면 그룹단어 cnt++ 아니라면 false
+					cnt++;
+			}
+			
+			
+		}
+		
+		System.out.println(cnt);
+		
+	}
+		
+	public static boolean check(String word) {
+		boolean[] vrf = new boolean[26]; // 그룹단어인지 확인할 배열
+		
+	    char saveNum = 0; // 전 단어를 저장해줄 char 변수
+		
+	    for(int i=0; i<word.length(); i++ ) { 
+	    	char now = word.charAt(i); // 이번에 검증할 단어의 알파벳
+	    	
+	    	if(saveNum != now) { // 전 단어와 다르다면
+	    		if(vrf[now -'a']==true) { // 근데 이미 전 단어가 배열에서 true로 나왔다면 그룹 단어가 아니기 때문에 false
+	    			return false;
+	    		}
+	    		vrf[now - 'a'] = true; // 맞다면 true로 바꿔주고 
+	    		saveNum = now;  // saveNum 에 지금의 값을 저장
+	    		
+	    	}
+	    	if(saveNum == now) { // 전에나온숫자가 지금숫자와 같다면 아직 그룹단어이기 때문에 계속 검증
+	    		continue;
+	    	}
+	    	
+	    }
+	    return true;
+		
+		
+	}
+	
+	
+	
+}
