@@ -1,0 +1,51 @@
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.util.Arrays;
+import java.util.StringTokenizer;
+
+public class Main {
+
+	public static void main(String[] args) throws IOException {
+		// TODO Auto-generated method stub
+
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
+		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+
+		StringTokenizer st;
+
+		// st = new StringTokenizer(br.readLine());
+
+		 StringBuilder sb = new StringBuilder();
+
+		int[][] arr = new int[9][9]; // 9 행 9 열
+		int max = 0;  // 최대값 저장
+		int firstIndex = 0; // 최대값이 있는 행 저장
+		int secondIndex = 0; // 최대값이있는 열 저장 
+		for (int i = 0; i < arr.length; i++) {
+			st = new StringTokenizer(br.readLine());
+			for (int j = 0; j < arr[i].length; j++) {
+				int num = Integer.parseInt(st.nextToken());
+				arr[i][j] = num;
+				
+				if(num > max) {
+					max = num;
+					firstIndex = i;
+					secondIndex = j;
+							
+				}
+			}
+
+		}
+		
+		sb.append((firstIndex+1) + " " + (secondIndex+1));
+		
+		System.out.println(max);
+		System.out.println(sb);
+		
+	}
+
+}
