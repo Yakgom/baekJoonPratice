@@ -43,7 +43,7 @@ public class Main {
 			
 			for(int i=0; i<T; i++) {
 				
-				result = (int) Math.pow(a+b, 2);
+				result = (int) Math.pow(a+b, 2); // b = 1 3  7 15 31   한변의 개수 보다 2부족해서 a랑 더해서 2 제곱 
 				
 				b += b;
 				
