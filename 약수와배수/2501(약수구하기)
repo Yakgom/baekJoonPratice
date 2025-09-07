@@ -1,0 +1,49 @@
+import java.io.*;
+import java.util.Locale;
+import java.util.StringTokenizer;
+
+public class Main {
+    public static void main(String[] args) throws IOException {
+
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+      //  BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+         StringTokenizer st = new StringTokenizer(br.readLine());
+
+      int N = Integer.parseInt(st.nextToken()); // N 숫자
+
+      int K = Integer.parseInt(st.nextToken()); // K 번째 작은 수 찾기
+
+      int count = 0; // K번째의 해당하는 번째 찾는 수
+
+      int num = 0; // K번째의 수를 담기 위한 변수 
+
+      for(int i = 1; i<=N; i++){ // 
+
+          if(N % i == 0){ // 반복하면서 약수인지 확인 
+
+              count++;  // 몇번째까지 돌았는지 확인
+          }
+
+          if(count == K){ // K번째와 count 가 같다면 K번째의 숫자인 i 를 num에 대입하고 반복문 종료 
+
+              num = i;
+              break;
+
+          }
+
+
+      }
+
+        System.out.println(num); // K번째수가없으면 자동으로 num은 0임
+
+
+
+
+
+
+    br.close();
+ //   bw.flush();
+  //  bw.close();
+
+    }
+}
