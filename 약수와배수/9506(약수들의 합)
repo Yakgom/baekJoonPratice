@@ -1,0 +1,62 @@
+import java.io.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Locale;
+import java.util.StringTokenizer;
+
+public class Main {
+    public static void main(String[] args) throws IOException {
+
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        //  BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+        //   StringTokenizer st = new StringTokenizer(br.readLine());
+        StringBuilder sb = new StringBuilder();
+
+        while (true) {
+
+            int N = Integer.parseInt(br.readLine()); // 확인할 숫자
+
+            int num = 0; // 약수들을 계속 더해줄 변수
+
+            if (N == -1) break; // -1 을 입력하면 종료
+
+            List<Integer> list = new ArrayList(); // 약수들을 담을 Int형 리스트 (배열로도 가능하지만 배열로는 약수의 갯수를 모르기 때문에)
+
+
+            for (int i = 1; i < N; i++) {
+
+                if (N % i == 0) {  // 약수라면 add
+                    list.add(i);
+                }
+            }
+            for (int a : list) {
+
+                num += a; // 약수들을 다 더해줌
+
+            }
+
+
+            if (N == num) {
+                sb.append(N + " = "); // 더 해준 값이 입력한 값과 같다면 출력문을 만들어줌 
+                for (int a : list) {
+                    sb.append(a + " + ");
+                }
+                sb.delete(sb.length() - 3, sb.length()); // 마지막에도 " + " 가 추가되기때문에 3칸을 삭제해줌
+            } else {
+                sb.append(N + " is NOT perfect.");
+            }
+
+
+            System.out.println(sb);
+            sb.setLength(0);
+        }
+
+
+        br.close();
+        //   bw.flush();
+        //  bw.close();
+
+    }
+
+
+}
