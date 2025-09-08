@@ -1,0 +1,63 @@
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.StringTokenizer;
+
+public class Main {
+ 
+	public static void main(String[] args) throws IOException {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
+		//BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+
+		StringTokenizer st;
+
+
+
+		//StringBuilder sb = new StringBuilder();
+	
+		int a = Integer.parseInt(br.readLine()); // 숫자 몇개 입력할건지
+		
+	
+		int[] arr = new int[a]; // 입력한 숫자들을 배열안에 저장함
+		
+		st = new StringTokenizer(br.readLine()); // 배열안에 들어갈 숫자들 
+		
+		int c = 0; // 소수가 몇개인지 확인함
+		
+		for(int i=0; i<arr.length; i++) {
+		
+			int count = 0; // 약수가 몇개인지 확인함
+			
+			arr[i] = Integer.parseInt(st.nextToken());
+			
+			for(int j=1; j<arr[i]; j++) { // 반복문을 돌려서 약수가 몇개인지 확인함 
+				
+				if(arr[i] % j == 0 ) {
+					count++;
+				}
+				
+			
+				
+			}
+			
+			if(count == 1) { // 만약 하나일시 그 수는 소수 
+				c ++;
+			}
+			
+		}
+		System.out.println(c); // 소수 갯수 출력 
+		
+		//bw.close();
+		br.close();
+		
+	
+		
+	}
+	
+	
+}
