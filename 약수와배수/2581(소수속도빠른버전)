@@ -1,0 +1,37 @@
+import java.io.*;
+
+public class Main {
+    public static void main(String[] args) throws IOException {
+
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
+        int N = Integer.parseInt(br.readLine());    // 자연수 N을 받고
+        int M = Integer.parseInt(br.readLine());    // 자연수 M을 받는다.
+
+        int sum = 0;                                // 소수 합계
+        int min = M;                                // 소수 중 최솟값
+
+        for ( int i = N; i <= M; i++ ){             // N부터 M까지 반복문 순회
+            int sqrt = (int) Math.sqrt( i );        // i의 제곱근 구하기
+            int count = 0;                          // i의 약수 개수 카운트
+            for ( int j = 1; j <= sqrt; j++ ){      // 1부터 제곱근까지 반복문 순회
+                if ( i % j == 0 ){                  // j가 i의 약수라면
+                    count++;                        // count++
+                    if ( j * j != i ){              // j가 i의 제곱근이 아니라면
+                        count++;                    // count++
+                    } // if end
+                } // if end
+            } // for end
+            if ( count == 2 ){                      // i가 소수라면
+                sum += i;                           // 합계에 추가하고
+                if ( min > i ) min = i;             // 최솟값이라면 대입
+            } // if end
+        } // for end
+        if ( sum > 0 ){                             // 소수가 존재하면
+            System.out.println( sum );              // 소수 합계 출력
+            System.out.println( min );              // 최솟값 출력
+        } else {                                    // 소수가 존재하지않는다면
+            System.out.println( -1 );               // -1 출력
+        } // if end
+    } // main end
+} // class end
