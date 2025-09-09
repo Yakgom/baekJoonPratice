@@ -1,0 +1,27 @@
+import java.io.*;
+import java.util.StringTokenizer;
+
+public class Main {
+    public static void main(String[] args) throws IOException {
+        // 입력을 빠르게 받기 위한 BufferedReader
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
+        // XOR 연산을 이용해 네 번째 점의 좌표를 구하기 위해 초기값 0으로 설정
+        int x = 0; // x좌표 누적 XOR 값
+        int y = 0; // y좌표 누적 XOR 값
+
+        // 총 3개의 점 입력
+        for (int i = 0; i < 3; i++) {
+            // 한 줄 입력을 공백 단위로 나누기 위해 StringTokenizer 사용
+            StringTokenizer st = new StringTokenizer(br.readLine());
+
+            // 입력된 x좌표와 y좌표를 정수로 변환 후 XOR 누적
+            // 같은 값은 XOR하면 0으로 상쇄되고, 한 번만 등장하는 값이 남게 됨
+            x ^= Integer.parseInt(st.nextToken());
+            y ^= Integer.parseInt(st.nextToken());
+        }
+
+        // XOR 연산 결과가 네 번째 점 좌표
+        System.out.println(x + " " + y);
+    }
+}
