@@ -9,20 +9,20 @@ public class Main {
 	public static void main(String[] args) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
-		int a = Integer.parseInt(br.readLine());
+		int a = Integer.parseInt(br.readLine()); //숫자1
 		
-		int b = Integer.parseInt(br.readLine());
+		int b = Integer.parseInt(br.readLine()); //숫자2
 		
-		List<Integer> list = new ArrayList<Integer>();
+		List<Integer> list = new ArrayList<Integer>(); // 소수담을배열리스트
+		  
+		int sum =0; //총합
 		
-		int sum =0;
-		
-		for(int i=a; i<=b; i++) {
+		for(int i=a; i<=b; i++) { // 숫자1부터 숫자2까지 반복
 			
-			int count =0;
+			int count =0; // 소수가 몇개인지 확인
 			
 			
-			for(int j=1; j<=i; j++) {
+			for(int j=1; j<=i; j++) { // 돌아가면서 소수가있으면 count++
 				
 				if(i%j == 0) {
 					
@@ -32,21 +32,21 @@ public class Main {
 				
 				
 			}
-			if(count == 2) {
+			if(count == 2) { // 1하고 자신의숫자만 나눠지면 소수
 				
 				list.add(i);
 			}
 			
 		}
 		
-		for(int l : list) {
+		for(int l : list) { // 소수숫자끼리 합침
 			sum += l;
 		}
-		if(!list.isEmpty()) {
+		if(!list.isEmpty()) { // 소수숫자가 하나라도있다면 sum 하고 최소값출력
 		System.out.println(sum);
 		System.out.println(list.get(0));
 		}else {
-			System.out.println(-1);
+			System.out.println(-1); //없다면 -1 출력
 		}
 		
 		
