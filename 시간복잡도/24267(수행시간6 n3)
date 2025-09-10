@@ -1,0 +1,32 @@
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+
+public class Main {
+
+	public static void main(String[] args) throws IOException {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
+
+			long n = Integer.parseInt(br.readLine());
+			
+		
+			System.out.println(n*(n-1)*(n-2)/2/3);
+			System.out.println(3);
+		
+		br.close();
+	}
+	
+	
+}
+/*
+O(n3) : 3차 시간 알고리즘
+
+예) 3번 중첩된 반복문(for 문) 등
+
+반복문 구조	3중 반복문
+수행 횟수	n(n-1)(n-2)/6
+시간복잡도	O(n³)
+의미	모든 3원소 조합 계산
+*/
