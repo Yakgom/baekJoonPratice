@@ -1,0 +1,30 @@
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.StringTokenizer;
+
+public class Main {
+
+	public static void main(String[] args) throws IOException {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
+		//StringTokenizer st;
+		System.out.println((long)Math.pow(Integer.parseInt(br.readLine()), 2));
+		System.out.println(2);
+		
+		
+		
+		br.close();
+	}
+	
+	
+}
+
+/*
+O(n2) 평방 시간(2차 시간) 알고리즘 (quadratic time algorithm)
+
+문제 해결 단계의 수가 입력값 n의 제곱으로 증가
+. n이 적을 경우에 만 사용해야 하는 느리고 비효율적인 알고리즘
+예) 2번 중첩된 반복문(for 문), 버블정렬,삽입정렬,선택정렬 등
+
+*/
