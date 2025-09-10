@@ -1,0 +1,56 @@
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.StringTokenizer;
+
+public class Main {
+
+	public static void main(String[] args) throws IOException {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
+		StringTokenizer st;
+
+		st = new StringTokenizer(br.readLine());
+
+		int a = Integer.parseInt(st.nextToken());
+
+		int b = Integer.parseInt(st.nextToken());
+
+		int c = Integer.parseInt(st.nextToken());
+
+		// 두개를 더한 값이 max 숫자보다 커야하기 때문에 max 숫자보다 -1 해서 그 수랑 모든 수랑 합침 그게 둘레.
+
+		int max = a;
+
+		max = Math.max(max, b);
+
+		max = Math.max(max, c);
+
+		if (max == a) {
+
+			if (max >= b + c) {
+				max = (b + c) - 1;
+				System.out.println(max + b + c);
+			} else {
+				System.out.println(a + b + c);
+			}
+
+		} else if (max == b) {
+			if (max >= a + c) {
+				max = (a + c) - 1;
+				System.out.println(max + a + c);
+			} else {
+				System.out.println(a + b + c);
+			}
+		} else if (max == c) {
+			if(max >= b+a) {
+				max= (b+a)-1;
+				System.out.println(max +b+a);
+			}else {
+				System.out.println(a+b+c);
+			}
+		}
+
+		br.close();
+	}
+}
