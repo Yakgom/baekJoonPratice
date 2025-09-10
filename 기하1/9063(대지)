@@ -1,0 +1,50 @@
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.StringTokenizer;
+
+public class Main {
+
+	public static void main(String[] args) throws IOException {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		
+		StringTokenizer st;
+		
+		//대지 9063 제일 낮은 왼쪽 숫자랑 높은숫자 왼쪽숫자 빼고 오른쪽도 제일 높은숫자랑 낮은숫자빼서 곱함 t
+		//두개의 배열을 처음의 입력한 숫자 만큼 반복문 돌려서 넣어주면서 최대값이랑 최소값 구해서 빼고 곱하면 됨.
+		
+		int N = Integer.parseInt(br.readLine()); // 횟수
+		
+		st= new StringTokenizer(br.readLine());
+		
+		int num1 = Integer.parseInt(st.nextToken()); // 첫번째 숫자를 min과 max에 넣기위해 변수를 먼저 받아주고
+		
+		int num2 = Integer.parseInt(st.nextToken());
+		
+		int min1 = num1;
+		
+		int max1 = num1;
+		
+		int min2 = num2;
+		
+		int max2 = num2;
+		
+		for(int i=0; i<N-1; i++) { // 처음에 숫자한번 받은게 있으니 횟수 -1 해줌
+		st=new StringTokenizer(br.readLine());
+		int num3 = Integer.parseInt(st.nextToken());
+		
+		min1 = Math.min(min1, num3); // 왼쪽 min과 max를 구하기위함
+		max1 = Math.max(max1, num3);
+		
+		int num4 = Integer.parseInt(st.nextToken());
+		
+		min2 = Math.min(min2, num4); // 오른쪽 min과 max를 구하기위함
+		max2 = Math.max(max2, num4);
+			
+		}
+		
+		System.out.println((max1-min1) * (max2-min2)); // 서로 빼주고 곱해줌 
+		
+		br.close();
+	}
+}
