@@ -1,7 +1,18 @@
 public class Main{
     public static void main(String[] args){
-        System.out.println("1");
+        System.out.println("1"); 
         System.out.println("0");
         
     }
 }
+
+/*
+O(c) 또는 O(1) 상수 시간 알고리즘 (constant time algorithm)
+
+입력 크기(개수)에 관계없이 수행 속도(계산 횟수) 일정
+가장 효율적임을 뜻함
+예) 배열에 있는 항목을 인덱스를 사용하여 접근할 때, 집합 내 요소로의 접근 등
+
+
+
+*/
