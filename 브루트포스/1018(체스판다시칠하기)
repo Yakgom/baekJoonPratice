@@ -1,0 +1,71 @@
+import java.io.*;
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) throws Exception {
+        // BufferedReader를 사용하여 입력을 빠르게 받음
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        
+        // 첫 번째 줄을 읽어서 N과 M을 공백 기준으로 나눔
+        StringTokenizer st = new StringTokenizer(br.readLine());
+        int N = Integer.parseInt(st.nextToken()); // 보드 행 개수
+        int M = Integer.parseInt(st.nextToken()); // 보드 열 개수
+        
+        // N x M 크기의 체스판을 저장할 2차원 배열 생성
+        char[][] chars = new char[N][M];
+        
+        // 체스판 입력 받기
+        for(int i=0; i<N; i++){
+            String line = br.readLine(); // 한 행 읽기
+            for(int j=0; j<M; j++ ) {
+                chars[i][j] = line.charAt(j); // 각 칸 문자로 저장 ('B' 또는 'W')
+            }
+        }
+        
+        // 최소 repaint 횟수를 저장할 변수 (최댓값으로 초기화)
+        int result = Integer.MAX_VALUE;
+        
+        // 8x8 블록 시작점 탐색
+        for(int i=0; i<=N-8; i++) { // 행 시작점
+            for(int j=0; j<=M-8; j++) { // 열 시작점
+                
+                int result1=0; // W로 시작할 경우 repaint 횟수
+                int result2=0; // B로 시작할 경우 repaint 횟수
+                
+                // 8x8 블록 내부 순회
+                for(int x=0; x<8; x++) { // 블록 내부 행
+                    for(int y=0; y<8; y++) { // 블록 내부 열
+                        
+                        char currents = chars[i+x][j+y]; // 현재 칸 색상
+                        
+                        // 현재 위치가 짝수(x+y가 짝수)인지 홀수인지 확인
+                        if((x+y) % 2 == 0) { // 짝수 위치
+                            if(currents != 'W') { // W로 시작하는 경우와 비교
+                                result1++; // 다르면 repaint 필요
+                            }
+                            if(currents != 'B') { // B로 시작하는 경우와 비교
+                                result2++; // 다르면 repaint 필요
+                            }
+                        }
+                        else { // 홀수 위치
+                            if(currents != 'B') { // W로 시작하는 경우, 홀수 위치는 B여야 함
+                                result1++;
+                            }
+                            if(currents != 'W') { // B로 시작하는 경우, 홀수 위치는 W여야 함
+                                result2++;
+                            }
+                        }
+                        
+                    } // y 루프 끝
+                } // x 루프 끝
+                
+                // 8x8 블록 전체를 검사한 후 최소 repaint 횟수 갱신
+                result = Math.min(result,Math.min(result1, result2));
+                
+            } // j 루프 끝
+        } // i 루프 끝
+        
+        // 최종 최소 repaint 횟수 출력
+        System.out.println(result);
+    }
+}
