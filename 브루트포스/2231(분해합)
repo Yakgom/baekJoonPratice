@@ -1,0 +1,50 @@
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.List;
+
+public class Main {
+
+	public static void main(String[] args) throws IOException {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		
+		//StringTokenizer st;
+		
+		int N = Integer.parseInt(br.readLine()); 
+	
+		
+		List<Integer> list = new ArrayList();
+		
+		for(int i=0; i<=N; i++) { // 0부터 받아온값까지 반복함 
+			
+			int tmp = i;  // 현재 숫자를 저장
+			int sum = 0;
+			
+			
+			
+			while(tmp>0) {  // tmp 가 0보다 클시
+				
+				sum += tmp%10; // 자리수마다 숫자를 찾아서 더해줌 
+				tmp /= 10; // 8 // 9 // 1 
+				
+				
+			}
+			
+			if(i+sum == N) { // 사용자가 입력한 값하고 현재숫자 + 자리수의 숫자가 더한값이 같다면 찾는 순간이 최소값의 분해합이니까 list에 추가하고 출력
+				list.add(i);
+				System.out.println(i);
+				break ;
+			}
+			
+			
+		}
+		
+		if(list.isEmpty()) {// 리스트에 요소가 없으면 분해합이 없는거니까 0출력 
+			System.out.println(0);
+		}
+
+		
+		br.close();
+	}
+}
