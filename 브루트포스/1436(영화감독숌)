@@ -1,0 +1,52 @@
+import java.io.*;
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) throws IOException {
+
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        //  BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+        //   StringTokenizer st = new StringTokenizer(br.readLine());
+        //StringBuilder sb = new StringBuilder();
+
+        int N = Integer.parseInt(br.readLine());
+
+        int countSix = 0;
+        for (int i = 666; ; i++) { // 666 부터 무한 반복함 
+            int result = i; // i 값을 받아줄 변수
+            int count = 0; // 6이 나오는 카운트를 셀 변수
+            if(N==0){ // 0이 들어오면 break;
+                break;
+            }
+
+                while (result > 0) { // 0보다 크면 무한 반복
+                    int num = result % 10; // 반복하면서 각 자리에 수를 가져옴
+                    if (num == 6) { // 6이면 count 
+                        count++;
+                    } else {    // 연속되지않으면 0으로 다시 대입
+                        count = 0;
+                    }
+                    result /= 10; // 10으로 나눠서 대입하면서 다음 자리수 확인
+                      if (count == 3) { // count 가 3이 되면 countSix를 하나씩 올림 countSix가 1이면 처음 나온 666
+                        countSix++;
+
+                    }
+
+                }
+
+
+
+           if (countSix == N) { // 내가 입력한 번째 때 반복문을 break;하고 출력함 
+                System.out.println(i);
+                break;
+            }
+
+        }
+
+        br.close();
+        //   bw.flush();
+        //  bw.close();
+    }
+
+
+}
