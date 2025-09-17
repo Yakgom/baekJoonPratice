@@ -1,0 +1,22 @@
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+
+public class Main {
+    public static void main(String[] args) throws Exception {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        int N = Integer.parseInt(br.readLine());
+
+        int answer = -1; // 기본값은 -1 (불가능한 경우)
+        // 5로 나눌 수 있는 개수를 크게 잡고 하나씩 줄여보며 검사
+        for (int five = N / 5; five >= 0; five--) {
+            int rest = N - (five * 5);
+            if (rest % 3 == 0) {
+                int three = rest / 3;
+                answer = five + three; // 총 봉지 개수
+                break; // 최소 개수니까 바로 종료
+            }
+        }
+
+        System.out.println(answer);
+    }
+}
