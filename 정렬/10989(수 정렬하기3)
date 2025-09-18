@@ -1,0 +1,44 @@
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+
+
+public class Main {
+	public static void main(String[] args) throws NumberFormatException, IOException {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+		
+		//StringTokenizer st = new StringTokenizer(br.readLine());
+		
+		int N = Integer.parseInt(br.readLine());
+		
+		int[] countArr = new int[10001]; // 백준 문제에서 제시한 들어올수있는값 1~10000
+		
+		
+		for(int i=0; i<N; i++) { // 수를 입력하고 그 수의 인덱스의 값을 1씩올림
+			int num = Integer.parseInt(br.readLine());
+			countArr[num]++;
+		}
+		
+		
+		
+		for(int i=1; i<countArr.length; i++) { // 만약 인덱스의 값이 0 보다 크다면 버퍼에 저장하고 값을 1씩 내려줌
+			while(countArr[i] > 0) {
+				bw.write(String.valueOf(i+"\n"));
+				countArr[i] --;
+			}
+		}
+		
+		
+		
+		
+		
+		
+		
+		bw.flush();
+		bw.close();
+		br.close();
+	}
+}
