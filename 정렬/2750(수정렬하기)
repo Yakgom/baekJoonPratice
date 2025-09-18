@@ -1,0 +1,41 @@
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.util.Arrays;
+
+public class Main {
+	public static void main(String[] args) throws NumberFormatException, IOException {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+		
+		
+		int N = Integer.parseInt(br.readLine()); // N 인트받고
+		
+		
+		
+		
+		
+		int[] arr = new int[N]; // 배열로 만든다음에
+		
+		for(int i=0; i<arr.length; i++) {
+			int number = Integer.parseInt(br.readLine()); // 숫자 입력
+			arr[i] = number; // 인덱스에 대입
+		}
+		
+		Arrays.sort(arr); // 정렬
+		
+		Arrays.stream(arr).forEach(e->{ // 람다식으로 string으로 형변환해서 개행과함께 BufferedWriter에 넣어줌
+				try {
+					bw.append(String.valueOf(e));
+					bw.newLine();
+				} catch (IOException e1) {
+					e1.printStackTrace();
+				}}
+				);
+		
+		bw.close(); // bw.close할때 출력도 같이함
+		br.close();
+	}
+}
