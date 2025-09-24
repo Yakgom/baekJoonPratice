@@ -1,0 +1,48 @@
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.util.Arrays;
+import java.util.StringTokenizer;
+
+public class Main {
+	public static void main(String[] args) throws NumberFormatException, IOException {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+		StringTokenizer st;
+		StringBuilder sb = new StringBuilder();
+
+		int N = Integer.parseInt(br.readLine());
+
+		String[][] strs = new String[N][2]; // 나이와 이름을 담을 배열
+
+		for (int i = 0; i < strs.length; i++) {
+			st = new StringTokenizer(br.readLine());
+			strs[i][0] = st.nextToken(); // 반복돌리면서 나이와 이름을 담아줌
+			strs[i][1] = st.nextToken();
+
+		}
+
+		Arrays.sort(strs, (a, b) -> { // String 배열을 정렬하는데 람다식으로 배열 조건식을 걸어줌 지금 상태는 나이순으로 정렬
+
+			return Integer.parseInt(a[0]) - Integer.parseInt(b[0]);
+
+		});
+
+		for (String[] a : strs) {
+			for (String s : a) {
+				sb.append(s);
+				sb.append(" ");
+
+			}
+			sb.append("\n");
+		}
+
+		bw.write(sb.toString());
+		bw.flush();
+		bw.close();
+		br.close();
+
+	}
+}
