@@ -48,7 +48,7 @@ public class Main {
 			
 		}
 		
-		for(int i=0; i<arr2.length; i++) { // 복사한 배열을 바꿔주기위한 반복문
+		/*for(int i=0; i<arr2.length; i++) { // 복사한 배열을 바꿔주기위한 반복문
 			
 			if( map.containsKey(arr[i])) { // 만약 맵 키값이랑 같은 숫자가 있다면 
 				arr2[i] = map.get(arr2[i]); // key값에있는 밸류를 가져오면서 배열에 넣어줌
@@ -56,6 +56,12 @@ public class Main {
 			
 			sb.append(arr2[i]);
 			sb.append(" ");
+		}*/
+
+		for(int i=0; i<arr2.length; i++) { // 위에 코드보다 이렇게 접근해서 바로바로 넣어주면됨
+			
+			int ranking = map.get(arr2[i]);
+			sb.append(ranking).append(' ');
 		}
 		
 		bw.write(sb.toString());
